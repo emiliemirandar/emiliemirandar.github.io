@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Hint: Focus on: name, location, recent inspection status
         
         // YOUR CODE HERE:
-    restaurants.slice(0, 50).forEach(function(restaurant) {
+    restaurants.slice(0, 25).forEach(function(restaurant) {
     const name = restaurant.properties.name;
     const location = restaurant.properties.city;
     const status = getComplianceStatus(restaurant);
