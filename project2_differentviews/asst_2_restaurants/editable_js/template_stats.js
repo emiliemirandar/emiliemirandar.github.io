@@ -40,6 +40,7 @@ async function showStatsView() {
     const complianceSchedule = restaurants.filter(r => getComplianceCategory(r.inspection_results) === "schedule").length;
     const unknownCompliance = restaurants.filter(r => getComplianceCategory(r.inspection_results) === "unknown").length;
 
+
     // Top cities by compliance
     const countByCity = (filterFunc) => {
       const result = {};
