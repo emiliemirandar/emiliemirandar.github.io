@@ -1,12 +1,12 @@
 /* BASE STYLES - Students can modify and extend */
 :root {
     --primary-color: #4d0393;
-    --secondary-color: #28a745;
+    --secondary-color: #f6650b;
     --compliant-color: #C4F4C7; 
     --noncompliant-color: #F4B8BC; 
     --compliantschedule-color: #FFEDAE;
     --defaultgray-color: #F0F0F0;  
-    --background-color: #f8f9fa;
+    --background-color: #B0D7FF;
     --card-background: #ffffff; 
     --side-border:#606060;
     --text-color: #333;
@@ -46,7 +46,8 @@ body {
 }
 
 .view-button:hover {
-    background: #005a87;
+    background: #ffdd00;
+    color: black; 
 }
 
 .view-button.active {
@@ -117,6 +118,9 @@ body {
     /* horizontal scroll */
   overflow-x: auto; 
   width: 100%;
+  max-height: 500px; 
+  overflow-y: auto; 
+  border: 1px solid #ccc;
 }
 
 .restaurant-table {
@@ -144,6 +148,7 @@ body {
 /* CATEGORY GROUPS */
 .category-section {
     margin-bottom: 1.1rem;
+    
 }
 
 .category-header {
@@ -190,6 +195,7 @@ body {
 }
 
 /* STATS LAYOUT */
+
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -231,13 +237,14 @@ body {
 }
 
 .city-comparison {
+    margin-top: 20px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
     color: var(--text-color);
     border-radius: 8px;
     width: 100%;
-    box-sizing: border-box;
+    box-sizing: border-box; 
 }
 
 .cities {
@@ -257,6 +264,11 @@ body {
 }
 
 .city-stats {
+    display: flex; 
+    flex-direction: row;         
+    justify-content: space-between;
+    margin-bottom: 4px;       
+    padding: 2px 0;
     gap: 0.5rem;
     background: white;
     padding: 1rem;
@@ -264,11 +276,11 @@ body {
 }
 
 .city-name {
-    font-weight: bold;
+  font-weight: 500;
 }
 
 .city-count {
-    color: var(--text-muted);
+  font-weight: bold;
 }
 
 
