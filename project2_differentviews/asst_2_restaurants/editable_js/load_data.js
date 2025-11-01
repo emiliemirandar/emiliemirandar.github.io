@@ -12,7 +12,7 @@ async function loadData() {
     // const response = await fetch('https://api.nasa.gov/neo/rest/v1/feed?api_key=DEMO_KEY');
     // const data = await response.json();
 
-    const response = await fetch ("./restaurants.geojson")
+    const response = await fetch ('https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json')
     const data = await response.json();
     console.log("data loaded", data);
 
