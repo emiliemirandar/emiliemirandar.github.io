@@ -9,8 +9,29 @@ function showStats(data) {
   // - Present insights visually
   // - Show distributions, averages, counts, etc.
   // - Help users understand patterns in the data
- 
+   try {
+    if (!data || !Array.isArray(data.features)) {
+      throw new Error("Invalid dataset: features not found");
+    }
+    
   const restaurants = data.features;
+
+// All caps to Title Case
+  const upperCaseExceptions = ["BBQ", "TGI", "B&A", "TEX-MEX", "I", "II", "III", "IV", "LLC", "D-LITE", "UMCP"];
+  function toTitleCase(text) {
+  if (!text) return "";
+  
+  return text
+    .toLowerCase()
+    .split(" ")
+    .map(word => {
+      if (upperCaseExceptions.includes(word.toUpperCase())) {
+        return word.toUpperCase();
+      }
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    })
+    .join(" ");
+}
 
   // Total Restaurants
   const total = restaurants.length;
@@ -42,7 +63,7 @@ function showStats(data) {
     .slice(0, 5)
     .map(([city, count]) => `
       <div class="city-stat">
-        <span class="city-name">${city}</span>
+        <span class="city-name">${toTitleCase(city)}</span>
         <span class="city-count">${count}</span>
       </div>
     `).join('');
@@ -60,14 +81,14 @@ function showStats(data) {
     .slice(0, 5)
     .map(([city, count]) => `
       <div class="city-stat">
-        <span class="city-name">${city}</span>
+        <span class="city-name">${toTitleCase(city)}</span>
         <span class="city-count">${count}</span>
       </div>
     `).join('');
 
   // Build HTML
   return `
-    <h2 class="view-title">📊 Restaurant Statistics</h2>
+    <h2 class="view-title">Restaurant Statistics <i class="fa-solid fa-utensils" style="color: #000000;"></i></h2>
     <div class="stats-grid">
       <div class="stat-card">
         <div class="stat-number">${total}</div>
@@ -95,12 +116,18 @@ function showStats(data) {
       <h4>Top Cities - Compliant Restaurants</h4>
       <div class="city-stats top">${topCompliantCities}</div>
     </div>
+
     <div class="cities">
       <h4>Top Cities - Non-Compliant Restaurants</h4>
       <div class="city-stats bottom">${topNonCompliantCities}</div>
     </div>
     </div>
   `;
+} 
+  catch (error) {
+    console.error(error);
+    return `<p class="error">Unable to load stats. Please try again later.</p>`;
+  }
 }
 
 export default showStats
