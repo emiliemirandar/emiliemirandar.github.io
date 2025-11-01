@@ -5,7 +5,9 @@
 function showCategories(data) {
 console.log("showCategories() was called");
 console.log([...new Set(data.features.map(f => f.properties.inspection_results))]);
-
+if (!data || !Array.isArray(data.features)) {
+  return `<p class="error">Invalid data format.</p>`;
+}
   // TODO: Students implement this function
   // Requirements:
   // - Group data by a meaningful category (cuisine, neighborhood, price, etc.)
@@ -14,6 +16,9 @@ console.log([...new Set(data.features.map(f => f.properties.inspection_results))
   // - Consider showing group statistics
 const restaurants = data.features;
 
+  if (restaurants.length === 0) {
+    return `<p class="error">No restaurant data found.</p>`;
+  }
 
 // All caps to Title Case
 const upperCaseExceptions = ["BBQ", "TGI", "B&A", "TEX-MEX", "I", "II", "III", "IV", "LLC", "D-LITE", "UMCP"];
