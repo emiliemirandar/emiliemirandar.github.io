@@ -1,5 +1,4 @@
-{
-    "resources": [
+[
             {
         "id": "acluscorecard",
         "name": "ACLU Congressional Scorecard",
@@ -749,4 +748,3 @@
         "tag_3": ""
         }
     ]
-}
