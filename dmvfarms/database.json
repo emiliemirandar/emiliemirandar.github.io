@@ -14,7 +14,7 @@
         "county": "Prince George's County",
         "website": "https://www.adastrafarmsmd.com/",
         "type": "produce", 
-        "image": "Images/stock of produce.jpeg",
+        "image": "/Images/stock of produce.jpeg",
         "description": "Ad Astra Farms is an urban micro-farm serving Prince George’s and Charles County with fresh, seasonal vegetables and herbs.",
         "tag_1": "Vegetables",
         "tag_2": "Herbs",
